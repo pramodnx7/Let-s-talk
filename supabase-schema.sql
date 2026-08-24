@@ -269,3 +269,31 @@ using (
   bucket_id in ('event-images', 'program-images', 'gallery-images', 'award-images', 'partner-logos')
   and public.is_admin()
 );
+
+grant usage on schema public to anon, authenticated;
+
+grant select on public.site_content to anon, authenticated;
+grant all on public.site_content to authenticated;
+
+grant insert on public.contact_messages to anon;
+grant select, insert, update, delete on public.contact_messages to authenticated;
+
+grant select on public.events to anon, authenticated;
+grant insert, update, delete on public.events to authenticated;
+
+grant select on public.programs to anon, authenticated;
+grant insert, update, delete on public.programs to authenticated;
+
+grant select on public.gallery_items to anon, authenticated;
+grant insert, update, delete on public.gallery_items to authenticated;
+
+grant select on public.awards to anon, authenticated;
+grant insert, update, delete on public.awards to authenticated;
+
+grant select on public.partners to anon, authenticated;
+grant insert, update, delete on public.partners to authenticated;
+
+grant select on public.admin_users to authenticated;
+grant insert, update, delete on public.admin_users to authenticated;
+
+grant execute on function public.is_admin() to anon, authenticated;
